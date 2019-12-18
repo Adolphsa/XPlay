@@ -7,11 +7,15 @@
 
 void IDemux::main()
 {
-    for(;;)
+    while (!isExit)
     {
-        XData d = read();
-        XLOGI("IDemux read %d", d.size);
-        if (d.size <= 0)
-            break;
+        XData data = read();
+        if (data.size > 0)
+        {
+            notify(data);
+        }
+//        XLOGI("IDemux read %d", d.size);
+//        if (d.size <= 0)
+//            break;
     }
 }

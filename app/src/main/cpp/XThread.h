@@ -5,6 +5,9 @@
 #ifndef XPLAY_XTHREAD_H
 #define XPLAY_XTHREAD_H
 
+//sleep 毫秒
+void XSleep(int mis);
+
 //C++ 11线程库
 class XThread{
 public:
@@ -17,6 +20,9 @@ public:
     //入口主函数
     virtual void main(){}
 
+protected:
+    bool isExit = false;
+    bool isRunning = false;
 private:
     void threadMain();
 };
